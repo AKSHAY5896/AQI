@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Quality Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .card { border: 1px solid #ccc; padding: 20px; display: inline-block; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn { padding: 10px 20px; margin: 10px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn-blue { background: #007bff; color: white; }
+        .btn-green { background: #28a745; color: white; text-decoration: none; display: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🌍 Air Quality Prediction</h2>
+
+        <form method="POST">
+            <input type="text" name="pm_value" placeholder="Enter PM2.5 value" required>
+            <button type="submit" class="btn btn-blue">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <h3>Prediction: {{ prediction }}</h3>
+            <p>Your Input: {{ user_value }}</p>
+            <p>Cluster: C{{ user_cluster }}</p>
+
+            <!-- Button 2 only appears after prediction -->
+            <a href="{{ url_for('details', value=user_value, cluster=user_cluster) }}" class="btn btn-green" style="display:inline-block;">View Details</a>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+try:
+		if 0 <= X <= 50:
+			return render_template('index.html',prediction=["Good","green"])
+		elif 51 <= X <= 100:
+			return render_template('index.html',prediction=["Moderate","purple"])
+		elif 101 <= X <= 150:
+			return render_template('index.html',prediction=["Unhealthy for sensitive Groups","yellow"])
+		elif 151 <= X <= 200:
+			return render_template('index.html',prediction=["Unhealthy","tomato"])
+		elif 201 <= X <= 300:
+			return render_template('index.html',prediction=["Very Unhealthy","orange"])
+		else:
+			return render_template('index.html',prediction=["HAZARDOUS","red"])
+	except ValueError:
+		return render_template("index.html",prediction=["Enter the details properly","red"])
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const myInput = document.getElementById('myInput');
+        const initialButton = document.getElementById('initialButton');
+        const secondButtonContainer = document.getElementById('secondButtonContainer');
+
+        initialButton.addEventListener('click', function() {
+            if (myInput.value.trim() !== '') { // .trim() removes whitespace from both ends
+                secondButtonContainer.style.display = 'block'; // Or 'flex', 'inline-block'
+            } else {
+                alert('Please enter something in the input field before proceeding.');
+                // Optionally, you could disable the initial button or provide other feedback
+            }
+        });
+    });
+
+
+
+
+if (document.querySelector('pm25').value.trim() !== '') { // .trim() removes whitespace from both ends
+        document.querySelector('.btn2').style.display = 'block'; // Or 'flex', 'inline-block'
+    } else {
+        alert('Please enter something in the input field before proceeding.');
+        // Optionally, you could disable the initial button or provide other feedback
+    }
